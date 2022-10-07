@@ -30,7 +30,7 @@ jobs:
         id: get-linked-issues
         uses: SFerguson123/get-linked-issues-from-sidebar@v1
         with:
-          pull-request-link: ${{ github.event.pull_request.url }}
+          pull-request-link: ${{ github.event.pull_request.html_url }}
     
       - name: echo result
         shell: pwsh
