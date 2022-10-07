@@ -32,7 +32,7 @@ jobs:
           echo "Hello World!"
           echo "body: ${{ github.event.pull_request.body }}"
           echo "issue: ${{ github.event.pull_request.issue }}"
-          echo "labels: ${{ github.event.pull_request.labels }}"
+          echo "labels: ${{ github.event.pull_request.labels }}" -join ('')
           echo "development: ${{ github.event.pull_request.issue }}"
           echo "thing ${{ github.event.pull_request.head.properties.repo.properties.issues_url }}"
           echo "links ${{ github.event.pull_request._links.properties.issue.properties }}"
