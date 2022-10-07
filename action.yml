@@ -1,0 +1,21 @@
+name: add-test-site-to-issue
+description: adds the test site url to issue found in body
+author: 'GitHub'
+inputs:
+  url:
+    description: test site url
+    required: true
+  body:
+    description: body of the pull request
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Add test site to issue
+      id: add-test-site-to-issue
+      shell: pwsh
+
+run:
+$token = ${{ secrets.GITHUB_TOKEN }}
+$body = ${{ inputs.body }}
+$url = ${{ inputs.url }}
