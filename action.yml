@@ -14,8 +14,7 @@ runs:
     - name: Add test site to issue
       id: add-test-site-to-issue
       shell: pwsh
-
-run:
-$token = ${{ secrets.GITHUB_TOKEN }}
-$body = ${{ inputs.body }}
-$url = ${{ inputs.url }}
+      run:
+        $token = ${{ secrets.GITHUB_TOKEN }}
+        $body = ${{ inputs.body }}
+        $url = ${{ inputs.url }}
