@@ -31,7 +31,7 @@ jobs:
         run: |
           echo "Hello World!"
           echo "${{ github.event.pull_request.body }}"
-          echo "${{ github.event.pull_request }}"
+          echo "${{ github.event.pull_request.issue }}"
       
         
         
