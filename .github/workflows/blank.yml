@@ -37,8 +37,20 @@ jobs:
         run: |
           echo '${{ steps.get-linked-issues.outputs.linked-issues}}'
           echo '${{ steps.get-linked-issues.outputs.linked-issues}}' > linkedIssues.json
-          cat linkedIssues.json
-          echo $('${{ steps.get-linked-issues.outputs.linked-issues}}' | jq --raw-output '.linkedIssues | @sh')
+          linkedIssues=$(jq -r '.linkedIssues | @sh' linkedIssues.json)
+          echo $linkedIssues
+          gh api graphql -f query='
+          query{
+            user(login: "SFerguson123"){
+              projectV2(number: 1) {
+                id
+              }
+            }
+          }'
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
           
 
         
