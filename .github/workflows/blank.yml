@@ -35,13 +35,12 @@ jobs:
       - name: echo result
         shell: pwsh
         run: |
-          echo '${{ fromJson(steps.get-linked-issues.outputs.linked-issues).linked-issues }}'
-          
-          
-      
-        
-        
-        
+          $linkedIssues = ${{ fromJson(steps.get-linked-issues.outputs.linked-issues).linked-issues }}
+          echo $linkedIssues
+          foreach ($linkedIssue in $linkedIssues)
+          {
+            echo $linkedIssue
+          }
         
         
         
