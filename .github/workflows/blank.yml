@@ -35,9 +35,9 @@ jobs:
       - name: echo result
         shell: bash
         run: |
-          echo '${{ steps.get-linked-issues.outputs.linked-issues.linked-issues}}'
-          echo '${{ steps.get-linked-issues.outputs.linked-issues.linked-issues}}' > linkedIssues.json
-          echo '${{ steps.get-linked-issues.outputs.linked-issues.linked-issues}}' | jq 'linked-issues'
+          echo '${{ steps.get-linked-issues.outputs.linked-issues}}'
+          echo '${{ steps.get-linked-issues.outputs.linked-issues}}' > linkedIssues.json
+          echo '${{ steps.get-linked-issues.outputs.linked-issues}}' | jq 'linked-issues'
           
 
         
