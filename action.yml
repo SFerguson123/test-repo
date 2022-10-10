@@ -18,4 +18,4 @@ runs:
         $token = ${{ secrets.GITHUB_TOKEN }}
         $body = ${{ inputs.body }}
         $url = ${{ inputs.url }}
-        echo "fun changes!!1!1!"
+        echo "fun changes!!1!1!1"
