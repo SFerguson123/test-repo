@@ -37,7 +37,8 @@ jobs:
         run: |
           echo '${{ steps.get-linked-issues.outputs.linked-issues}}'
           echo '${{ steps.get-linked-issues.outputs.linked-issues}}' > linkedIssues.json
-          echo '${{ steps.get-linked-issues.outputs.linked-issues}}' | jq '.linkedIssues'
+          cat linkedIssues.json
+          echo $('${{ steps.get-linked-issues.outputs.linked-issues}}' | jq --raw-output '.linkedIssues | @sh')
           
 
         
