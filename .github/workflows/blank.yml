@@ -25,11 +25,11 @@ jobs:
     steps:
       - id: thing
         shell: pwsh
-        run: Add-Content -Value "hi=hi" -Path "$env:GITHUB_OUTPUT"
+        run: Add-Content -Value "h=hi" -Path "$env:GITHUB_OUTPUT"
           
       - id: thing2
         shell: pwsh
-        #if: ${{steps.thing.outputs.hi != ''}}
+        if: ${{steps.thing.outputs.hi != ''}}
         run: |
           echo "hi :D"
           echo ${{steps.thing.outputs.hi}}
