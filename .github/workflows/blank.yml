@@ -29,8 +29,10 @@ jobs:
           
       - id: thing2
         shell: pwsh
-        if: ${{steps.thing.output.hi != ''}}
-        run: echo "hi :D"
+        #if: ${{steps.thing.outputs.hi != ''}}
+        run: |
+          echo "hi :D"
+          echo ${{steps.thing.outputs.hi}}
       
           
 
