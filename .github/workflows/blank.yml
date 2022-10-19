@@ -25,7 +25,7 @@ jobs:
     steps:
       - id: thing
         shell: pwsh
-        run: echo "hi=hi" >> $GITHUB_OUTPUT
+        run: Add-Content -Value "hi=hi" -Path "$env:GITHUB_OUTPUT"
           
       - id: thing2
         shell: pwsh
