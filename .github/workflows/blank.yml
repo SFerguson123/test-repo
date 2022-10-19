@@ -23,34 +23,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      
-      - name: Get Linked Issues For Pull Request
-        id: get-linked-issues
-        uses: SFerguson123/get-linked-issues-from-sidebar@v1
-        with:
-          pull-request-link: ${{ github.event.pull_request.html_url }}
-    
-      - name: echo result
-        shell: bash
-        run: |
-          echo '${{ steps.get-linked-issues.outputs.linked-issues}}'
-          echo '${{ steps.get-linked-issues.outputs.linked-issues}}' > linkedIssues.json
-          linkedIssues=$(jq -r '.linkedIssues | @sh' linkedIssues.json)
-          echo $linkedIssues
-          gh api graphql -f query='
-          query{
-            user(login: "SFerguson123"){
-              projectV2(number: 1) {
-                id
-              }
-            }
-          }'
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - id: thing
+        shell: pwsh
+        run: echo "hi=hi" >> $GITHUB_OUTPUT
           
+      - id: thing2
+        shell: pwsh
+        if: ${{steps.thing.output.hi != ''}}
+        run: echo "hi :D"
+      
           
 
         
